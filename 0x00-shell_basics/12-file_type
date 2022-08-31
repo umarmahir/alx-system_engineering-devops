@@ -1,2 +1,1 @@
-#!/bin/bash 
-type /tmp/imafile
+#!/bin/bash \nfile /tmp/iamafile
