@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# A program that prints all the IPV4 IPs attached to it
+
+# Get the list of all network interfaces on the system
+
+interfaces=$(ifconfig | grep -oE '^[^ ]+')
+
+
+
+# Loop through each network interface
+
+for interface in $interfaces; do
+
+  # Get the IP address of the current network interface
+  ip_address=$(ifconfig $interface | grep 'inet ' | awk '{print $2}')
+
+  # Check if the IP address is not empty
+  if [ -n "$ip_address" ]; then
+    # Print the IP address
+    echo "$interface: $ip_address"
+  fi
+
+done
